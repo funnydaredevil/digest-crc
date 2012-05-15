@@ -51,7 +51,7 @@ module Digest
     #   The data to update the checksum with.
     #
     def update(data)
-      data.each_byte do |b|
+      data.each do |b|
         @crc = ((TABLE[((@crc >> 8) ^ b) & 0xff] ^ (@crc << 8)) & 0xffff)
       end
 
